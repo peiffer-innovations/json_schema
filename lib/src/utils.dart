@@ -39,7 +39,6 @@
 import 'package:json_schema2/json_schema2.dart';
 import 'package:uri/uri.dart' show UriTemplate;
 
-
 class JsonSchemaUtils {
   static bool jsonEqual(a, b) {
     var result = true;

@@ -634,7 +634,7 @@ class Validator {
 
   void _validate(JsonSchema schema, dynamic instance) {
     if (instance is! Instance) {
-      instance =  Instance(instance);
+      instance = Instance(instance);
     }
 
     /// If the [JsonSchema] is a bool, always return this value.
