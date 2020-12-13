@@ -1,5 +1,7 @@
 # JSON Schema
 
+**NOTE**: This project is a fork from [json_schema](https://pub.dev/packages/json_schema) which itself appears to be no longer maintained.
+
   A *platform agnostic* (dart:html or dart:io) Dart library for validating JSON instances against JSON Schemas (multi-version support with latest of Draft 6).
 
 ![Build Status](https://travis-ci.org/workiva/json_schema.svg)
@@ -20,7 +22,7 @@ After creating any schema, JSON instances can be validated by calling `.validate
 A schema can be created with a Map that is either hand-crafted, referenced from a JSON file, or *previously* fetched from the network or file system.
 
 ```dart
-import 'package:json_schema/json_schema.dart';
+import 'package:json_schema2/json_schema2.dart';
 
 main() {
   /// Define schema in a Dart [Map] or use a JSON [String].
@@ -47,8 +49,8 @@ If you want to create `JsonSchema`s synchronously, and you have $refs that canno
 #### Example
 
 ```dart 
-import 'package:json_schema/json_schema.dart';
-import 'package:dart2_constant/convert.dart';
+import 'dart:convert';
+import 'package:json_schema2/json_schema2.dart';
 
 main() {
   final referencedSchema = {
@@ -122,20 +124,9 @@ If you have schemas that have nested $refs that are HTTP URIs that are publicly 
 ```dart
 import 'dart:io';
 
-import 'package:json_schema/json_schema.dart';
-
-// For VM:
-import 'package:json_schema/vm.dart';
-
-// For Browser:
-// import 'package:json_schema/browser.dart';
+import 'package:json_schema2/json_schema2.dart';
 
 main() async {
-  // For VM:
-  configureJsonSchemaForVm();
-
-  // For Browser:
-  // configureJsonSchemaForBrowser();
 
   // Schema Defined as a JSON String
   final schema = await JsonSchema.createSchemaAsync(r'''
@@ -170,21 +161,9 @@ You can also create a schema directly from a publicly accessible URL, like so:
 ```dart
 import 'dart:io';
 
-import 'package:json_schema/json_schema.dart';
-
-// For VM:
-import 'package:json_schema/vm.dart';
-
-// For Browser:
-// import 'package:json_schema/browser.dart';
+import 'package:json_schema2/json_schema2.dart';
 
 main() async {
-  // For VM:
-  configureJsonSchemaForVm();
-
-  // For Browser:
-  // configureJsonSchemaForBrowser();
-
   final url = "https://raw.githubusercontent.com/json-schema-org/JSON-Schema-Test-Suite/master/remotes/integer.json";
 
   final schema = await JsonSchema.createSchemaFromUrl(url);
@@ -203,49 +182,6 @@ main() async {
 }
 ```
 
-#### Example 2 - File
-
-```dart
-import 'dart:io';
-
-import 'package:json_schema/json_schema.dart';
-
-// For VM:
-import 'package:json_schema/vm.dart';
-
-// For Browser:
-// import 'package:json_schema/browser.dart';
-
-main() async {
-  // For VM:
-  configureJsonSchemaForVm();
-
-  // For Browser:
-  // configureJsonSchemaForBrowser();
-
-  final file = "example/readme/asynchronous_creation/geo.schema.json";
-
-  final schema = await JsonSchema.createSchemaFromUrl(file);
-
-  // Create some examples to validate against the schema.
-  final workivaAmes = {
-    'latitude': 41.9956731,
-    'longitude': -93.6403663,
-  };
-
-  final nowhereville = {
-    'latitude': -2000,
-    'longitude': 7836,
-  };
-
-  print('$workivaAmes => ${schema.validate(workivaAmes)}'); // true
-  print('$nowhereville => ${schema.validate(nowhereville)}'); // false
-
-  // Exit the process cleanly (VM Only).
-  exit(0);
-}
-```
-
 ### Asynchronous Creation, with custom remote $refs:
 
 If you have nested $refs that are either non-HTTP URIs or non-publicly-accessible HTTP $refs, you can supply an `RefProviderAsync` to `createSchemaAsync`, and perform any custom logic you need.
@@ -253,25 +189,13 @@ If you have nested $refs that are either non-HTTP URIs or non-publicly-accessibl
 #### Example
 
 ```dart
-import 'dart:io';
 import 'dart:async';
-import 'package:dart2_constant/convert.dart';
+import 'dart:convert';
+import 'dart:io';
 
-import 'package:json_schema/json_schema.dart';
-
-// For VM:
-import 'package:json_schema/vm.dart';
-
-// For Browser:
-// import 'package:json_schema/browser.dart';
+import 'package:json_schema2/json_schema2.dart';
 
 main() async {
-  // For VM:
-  configureJsonSchemaForVm();
-
-  // For Browser:
-  // configureJsonSchemaForBrowser();
-
   final referencedSchema = {
     r"$id": "https://example.com/geographical-location.schema.json",
     r"$schema": "http://json-schema.org/draft-06/schema#",
@@ -340,67 +264,3 @@ main() async {
   exit(0);
 }
 ```
-
-## How To Use Schema Information
-
-  Schema information can be used for validation; but it can also be a valuable source of information about the structure of data. The `JsonSchema` class fully parses the schema first, which itself must be valid on all paths within the schema. Accessors are provided for all specified keywords of the JSON Schema specification associated with a schema, so tools can use it to create rich views of the data, like forms or diagrams.
-
-  One example use is the *deprecated* _schemadot_ program included in the _bin_
-  folder which takes schema as input and outputs a _Graphviz_ _dot_
-  file, providing a picture of the schema. This does not provide all
-  information of the schema, and is a work in progress - but it can be
-  useful to *see* what a schema is.
-
-  For example, the grades_schema.json is:
-
-    {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "title" : "Grade Tracker",
-        "type" : "object",
-        "additionalProperties" : false,
-        "properties" : {
-    	"semesters" : {
-    	    "type" : "array",
-    	    "items" : {
-                    "type" : "object",
-                    "additionalProperties" : false,
-                    "properties" : {
-                        "semester": { "type" : "integer" },
-                        "grades" : {
-                            "type" : "array",
-                            "items" : {
-                                "type" : "object",
-                                "additionalProperties" : false,
-                                "required" : [ "date", "type", "grade", "std" ],
-                                "properties" : {
-                                    "date" : { "type" : "string"},
-                                    "type" : { "enum" : [ "homework", "quiz", "test", "final_exam" ] },
-                                    "grade" : { "type" : "number"},
-                                    "std" : { 
-                                        "oneOf" : [ 
-                                            {"type" : "number"}, 
-                                            {"type" : "null"}
-                                        ] 
-                                    },
-                                    "avg" : { 
-                                        "oneOf" : [ 
-                                            {"type" : "number"}, 
-                                            {"type" : "null"}
-                                        ] 
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-      	    }
-        }
-    }
-
-  And the generated image is:
-
-  ![Grades!](https://raw.github.com/patefacio/json_schema/master/example/from_url/grades_schema.png)  
-
-  For more detailed image open link:
-  <a href="https://raw.github.com/patefacio/json_schema/master/example/from_url/grades_schema.png"
-  target="_blank">Grade example schema diagram</a>
