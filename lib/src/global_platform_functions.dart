@@ -41,7 +41,7 @@ import 'package:json_schema2/json_schema2.dart';
 /// Default validators for all [JsonSchema]s.
 DefaultValidators get defaultValidators =>
     _defaultValidators ?? DefaultValidators();
-set defaultValidators(DefaultValidators defaultValidators) {
+set defaultValidators(DefaultValidators? defaultValidators) {
   if (defaultValidators == null) {
     throw ArgumentError('json_schema: default validators '
         'implementation must not be null.');
@@ -50,4 +50,4 @@ set defaultValidators(DefaultValidators defaultValidators) {
   _defaultValidators = defaultValidators;
 }
 
-DefaultValidators _defaultValidators;
+DefaultValidators? _defaultValidators;

@@ -40,5 +40,5 @@ import 'dart:async';
 
 import 'package:json_schema2/json_schema2.dart';
 
-typedef RefProvider = JsonSchema Function(String ref);
-typedef RefProviderAsync = Future<JsonSchema> Function(String ref);
+typedef RefProvider = JsonSchema? Function(String ref);
+typedef RefProviderAsync = Future<JsonSchema?> Function(String ref);

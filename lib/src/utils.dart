@@ -67,7 +67,7 @@ class JsonSchemaUtils {
       path.replaceAll('~', '~0').replaceAll('/', '~1').replaceAll('%', '%25');
 
   static JsonSchema getSubMapFromFragment(JsonSchema schema, Uri uri) {
-    if (uri.fragment?.isNotEmpty == true) {
+    if (uri.fragment.isNotEmpty == true) {
       schema = schema.resolvePath('#${uri.fragment}');
     }
     return schema;

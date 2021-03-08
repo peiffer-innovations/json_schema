@@ -93,10 +93,10 @@ class SchemaType implements Comparable<SchemaType> {
       case string:
         return 'string';
     }
-    return null;
+    return '<unknown>';
   }
 
-  static SchemaType fromString(String s) {
+  static SchemaType? fromString(String? s) {
     if (s == null) return null;
     switch (s) {
       case 'array':

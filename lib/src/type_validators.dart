@@ -41,8 +41,8 @@ class TypeValidators {
     throw FormatExceptions.error('$key must be a non-empty string: $value');
   }
 
-  static List<SchemaType> typeList(String key, dynamic value) {
-    List<SchemaType> typeList;
+  static List<SchemaType?> typeList(String key, dynamic value) {
+    List<SchemaType?> typeList;
     if (value is String) {
       typeList = [SchemaType.fromString(value)];
     } else if (value is List) {
@@ -93,7 +93,7 @@ class TypeValidators {
     throw FormatExceptions.bool(key, value);
   }
 
-  static Map object(String key, dynamic value) {
+  static Map object(String? key, dynamic value) {
     if (value is Map) {
       return value;
     }

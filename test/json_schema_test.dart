@@ -6,7 +6,6 @@ void main() {
     var schema = await JsonSchema.createSchemaFromUrl(
       'https://peiffer-innovations.github.io/flutter_json_schemas/schemas/json_dynamic_widget/align.json',
     );
-    assert(schema != null);
 
     var data = {
       'type': 'align',
