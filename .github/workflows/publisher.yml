@@ -21,8 +21,6 @@ jobs:
         run: dartfmt --set-exit-if-changed -w lib test
       - name: Run tests
         run: pub run test
-      - name: Run test coverage
-        run: pub run test_coverage
       - name: Publish
         uses: sakebook/actions-flutter-pub-publisher@v1.3.1
         with:
