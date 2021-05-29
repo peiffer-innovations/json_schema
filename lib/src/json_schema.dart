@@ -501,10 +501,10 @@ class JsonSchema {
   bool _hasConst = false;
 
   /// A value which the [JsonSchema] instance must exactly conform to.
-  dynamic? _constValue;
+  dynamic _constValue;
 
   /// Default value of the [JsonSchema].
-  dynamic? _defaultValue;
+  dynamic _defaultValue;
 
   /// Included [JsonSchema] definitions.
   final Map<String, JsonSchema> _definitions = {};

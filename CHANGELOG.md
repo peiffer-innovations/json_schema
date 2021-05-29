@@ -1,3 +1,8 @@
+## [2.0.0+2] - May 29th, 2021
+
+* Static code analysis updates
+
+
 ## [2.0.0+1] - April 30th, 2021
 
 * Dependency updates
