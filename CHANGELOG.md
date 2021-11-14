@@ -1,3 +1,8 @@
+## [2.0.0+4] - November 14th, 2021
+
+* Changed GitHub publisher
+
+
 ## [2.0.0+3] - September 19th, 2021
 
 * Dependency updates

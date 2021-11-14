@@ -8,22 +8,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    container:
-      image: google/dart:latest
-
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: pub upgrade
-      - name: Dart Analyzer
-        run: dartanalyzer lib
-      - name: Code Format
-        run: dartfmt --set-exit-if-changed -w lib test
-      - name: Run tests
-        run: pub run test
-      - name: Publish
-        uses: sakebook/actions-flutter-pub-publisher@v1.3.1
+
+      - uses: subosito/flutter-action@v1
         with:
-          credential: ${{ secrets.CREDENTIAL_JSON }}
-          flutter_package: false
-          skip_test: true
+          channel: "stable"
+
+      - name: Validate
+        uses: peiffer-innovations/actions-flutter-validate@v1.1.1
+        with:
+          flutter_package: true
+
+      - name: Publish
+        uses: peiffer-innovations/actions-pub-publish@v1.0.0
+        with:
+          credentials: ${{ secrets.CREDENTIAL_JSON }}
