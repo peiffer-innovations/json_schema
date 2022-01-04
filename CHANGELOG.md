@@ -1,3 +1,8 @@
+## [2.0.0+5] - January 3rd, 2022
+
+* Dart 2.15
+
+
 ## [2.0.0+4] - November 14th, 2021
 
 * Changed GitHub publisher
