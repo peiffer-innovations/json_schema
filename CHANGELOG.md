@@ -1,3 +1,8 @@
+## [2.0.1] - January 4th, 2022
+
+* Revert path back to 1.8.0
+
+
 ## [2.0.0+5] - January 3rd, 2022
 
 * Dart 2.15
