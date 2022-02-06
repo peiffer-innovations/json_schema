@@ -1,5 +1,5 @@
 name: json_schema2
-version: 2.0.1
+version: 2.0.1+1
 description: Provide support for validating instances against json schema
 homepage: https://github.com/workiva/json_schema
 
@@ -12,7 +12,7 @@ dependencies:
   logging: ^1.0.2
   meta: ^1.7.0
   path: ^1.8.0
-  rest_client: ^2.0.1+6
+  rest_client: ^2.0.1+7
   uri: ^1.0.0
 
 dev_dependencies:

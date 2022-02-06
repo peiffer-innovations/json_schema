@@ -1,3 +1,8 @@
+## [2.0.1+1] - February 6th, 2022
+
+* GH Workflow update
+
+
 ## [2.0.1] - January 4th, 2022
 
 * Revert path back to 1.8.0
