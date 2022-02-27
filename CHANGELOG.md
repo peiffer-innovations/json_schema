@@ -1,3 +1,8 @@
+## [2.0.1+2] - February 27th, 2022
+
+* Readme update
+
+
 ## [2.0.1+1] - February 6th, 2022
 
 * GH Workflow update
