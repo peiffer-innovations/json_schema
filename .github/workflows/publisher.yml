@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - ChANGELOG.md
+      - CHANGELOG.md
 
 jobs:
   build:
