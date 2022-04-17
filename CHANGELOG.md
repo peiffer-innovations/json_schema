@@ -1,3 +1,8 @@
+## [2.0.2] - April 16th, 2022
+
+* Updated to accept the schema as JSON or YAML
+
+
 ## [2.0.1+2] - February 27th, 2022
 
 * Readme update

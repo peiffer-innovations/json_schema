@@ -3,6 +3,8 @@ name: Dart Publisher
 on:
   push:
     branches: [main]
+    paths:
+      - ChANGELOG.md
 
 jobs:
   build:

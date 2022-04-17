@@ -43,6 +43,7 @@ import 'package:collection/collection.dart';
 import 'package:json_schema2/json_schema2.dart';
 import 'package:path/path.dart' as path_lib;
 import 'package:rest_client/rest_client.dart';
+import 'package:yaon/yaon.dart' as yaon;
 
 typedef SchemaPropertySetter = dynamic Function(JsonSchema s, dynamic value);
 typedef SchemaAssigner = Function(JsonSchema s);
@@ -121,7 +122,7 @@ class JsonSchema {
     /// https://json-schema.org/latest/json-schema-core.html#rfc.section.4.3.1
     if (schema is String) {
       try {
-        data = json.decode(schema);
+        data = yaon.parse(schema);
       } catch (e) {
         throw ArgumentError(
             'String data provided to createSchemaAsync is not valid JSON.');
@@ -133,7 +134,7 @@ class JsonSchema {
 
     if (data is Map) {
       return JsonSchema._fromRootMap(
-              data as Map<String, dynamic>, schemaVersion,
+              Map<String, dynamic>.from(data), schemaVersion,
               fetchedFromUri: fetchedFromUri, refProviderAsync: refProvider)
           ._thisCompleter
           .future;
@@ -169,7 +170,7 @@ class JsonSchema {
     /// https://json-schema.org/latest/json-schema-core.html#rfc.section.4.3.1
     if (schema is String) {
       try {
-        data = json.decode(schema);
+        data = yaon.parse(schema);
       } catch (e) {
         throw ArgumentError(
             'String data provided to createSchema is not valid JSON.');
@@ -181,7 +182,7 @@ class JsonSchema {
 
     if (data is Map) {
       return JsonSchema._fromRootMap(
-              data as Map<String, dynamic>, schemaVersion,
+              Map<String, dynamic>.from(data), schemaVersion,
               fetchedFromUri: fetchedFromUri,
               isSync: true,
               refProvider: refProvider)
@@ -442,7 +443,8 @@ class JsonSchema {
         throw FormatExceptions.schema(
             'free-form property $original at $path', schema);
       }
-      return JsonSchema._fromMap(_root, schema as Map<String, dynamic>, path);
+      return JsonSchema._fromMap(
+          _root, Map<String, dynamic>.from(schema), path);
     }
     return result;
   }
@@ -454,7 +456,7 @@ class JsonSchema {
 
     if (schemaDefinition is Map) {
       return JsonSchema._fromMap(
-          _root, schemaDefinition as Map<String, dynamic>, path,
+          _root, Map<String, dynamic>.from(schemaDefinition), path,
           parent: this);
 
       // Boolean schemas are only supported in draft 6 and later.

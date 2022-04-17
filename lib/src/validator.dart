@@ -36,10 +36,10 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //     THE SOFTWARE.
 
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:json_schema2/json_schema2.dart';
+import 'package:yaon/yaon.dart' as yaon;
 
 class Instance {
   Instance(dynamic data, {String path = ''}) {
@@ -91,7 +91,7 @@ class Validator {
     dynamic data = instance;
     if (parseJson && instance is String) {
       try {
-        data = json.decode(instance);
+        data = yaon.parse(instance);
       } catch (e) {
         throw ArgumentError(
             'JSON instance provided to validate is not valid JSON.');
