@@ -1,3 +1,8 @@
+## [2.0.2+1] - May, 31, 2022
+
+* Automated dependency updates
+
+
 ## [2.0.2] - April 16th, 2022
 
 * Updated to accept the schema as JSON or YAML
