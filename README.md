@@ -1,3 +1,22 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [JSON Schema](#json-schema)
+  - [How To Create and Validate Against a Schema](#how-to-create-and-validate-against-a-schema)
+    - [Synchronous Creation - Self Contained](#synchronous-creation---self-contained)
+      - [Example](#example)
+    - [Synchronous Creation, Local Ref Cache](#synchronous-creation-local-ref-cache)
+      - [Example](#example-1)
+    - [Asynchronous Creation, Remote HTTP Refs](#asynchronous-creation-remote-http-refs)
+      - [Example](#example-2)
+    - [Asynchronous Creation, From URL or File](#asynchronous-creation-from-url-or-file)
+      - [Example 1 - URL](#example-1---url)
+    - [Asynchronous Creation, with custom remote $refs:](#asynchronous-creation-with-custom-remote-refs)
+      - [Example](#example-3)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # JSON Schema
 
 **NOTE**: This project is a fork from [json_schema](https://pub.dev/packages/json_schema) which itself appears to be no longer maintained.
