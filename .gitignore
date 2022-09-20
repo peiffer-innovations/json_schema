@@ -1,6 +1,7 @@
 *.~*~
 .idea/
-.settings/.packages
+.settings/
+.packages
 .project
 .dart_tool/
 .pub/
