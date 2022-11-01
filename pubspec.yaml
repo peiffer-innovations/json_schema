@@ -1,5 +1,5 @@
 name: 'json_schema2'
-version: '2.0.2+15'
+version: '2.0.2+16'
 description: 'Provide support for validating instances against json schema'
 homepage: 'https://github.com/peiffer-innovations/json_schema2'
 
@@ -12,12 +12,12 @@ dependencies:
   logging: '^1.1.0'
   meta: '^1.7.0'
   path: '^1.8.0'
-  rest_client: '^2.2.0'
+  rest_client: '^2.2.0+1'
   uri: '^1.0.0'
-  yaon: '^1.0.1+5'
+  yaon: '^1.0.1+6'
 
 dev_dependencies: 
-  test: '^1.21.6'
+  test: '^1.21.7'
 
 ignore_updates: 
   - 'archive'
