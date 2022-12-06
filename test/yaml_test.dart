@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   test('valid', () {
-    var valid = JsonSchema.createSchema(_kSchema).validate({
+    final valid = JsonSchema.createSchema(_kSchema).validate({
       'firstName': 'John',
       'lastName': 'Smith',
     });

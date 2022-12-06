@@ -213,10 +213,11 @@ class JsonSchema {
     if (schemaUrl.endsWith('#')) {
       uri = uriWithFrag;
     }
-    var client = Client();
+    final client = Client();
 
-    var response = await client.execute(request: Request(url: uri.toString()));
-    var parentSchema = await JsonSchema.createSchemaAsync(
+    final response =
+        await client.execute(request: Request(url: uri.toString()));
+    final parentSchema = await JsonSchema.createSchemaAsync(
       response.body,
       schemaVersion: schemaVersion,
       fetchedFromUri: uri,
@@ -761,10 +762,10 @@ class JsonSchema {
   @override
   bool operator ==(dynamic other) =>
       other is JsonSchema &&
-      DeepCollectionEquality().equals(schemaMap, other.schemaMap);
+      const DeepCollectionEquality().equals(schemaMap, other.schemaMap);
 
   @override
-  int get hashCode => DeepCollectionEquality().hash(schemaMap);
+  int get hashCode => const DeepCollectionEquality().hash(schemaMap);
 
   @override
   String toString() => '${_schemaMap}';

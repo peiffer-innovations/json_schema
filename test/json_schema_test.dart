@@ -3,11 +3,11 @@ import 'package:test/test.dart';
 
 void main() {
   test('fromRemoteUrl', () async {
-    var schema = await JsonSchema.createSchemaFromUrl(
+    final schema = await JsonSchema.createSchemaFromUrl(
       'https://peiffer-innovations.github.io/flutter_json_schemas/schemas/json_dynamic_widget/align.json',
     );
 
-    var data = {
+    final data = {
       'type': 'align',
       'args': {'alignment': 'topCenter'},
       'child': {
@@ -20,7 +20,7 @@ void main() {
       }
     };
 
-    var error = schema.validate(data);
+    final error = schema.validate(data);
 
     expect(error, false);
   });
