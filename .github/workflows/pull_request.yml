@@ -17,5 +17,3 @@ jobs:
 
       - name: Validate
         uses: peiffer-innovations/actions-flutter-validate@v1
-        with:
-          flutter_package: false
