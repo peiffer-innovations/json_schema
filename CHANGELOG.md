@@ -1,3 +1,8 @@
+## [2.0.3+3] - February 14, 2023
+
+* Automated dependency updates
+
+
 ## [2.0.3+2] - February 7, 2023
 
 * Automated dependency updates
@@ -177,6 +182,7 @@
 ## [1.0.0] - December 13th, 2020
 
 * Initial release as fork from https://github.com/Workiva/json_schema to update outdated code / dependencies.
+
 
 
 
