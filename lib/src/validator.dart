@@ -39,7 +39,7 @@
 import 'dart:math';
 
 import 'package:json_schema2/json_schema2.dart';
-import 'package:yaon/yaon.dart' as yaon;
+import 'package:yaon/yaon.dart';
 
 class Instance {
   Instance(dynamic data, {String path = ''}) {

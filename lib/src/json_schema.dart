@@ -43,7 +43,7 @@ import 'package:collection/collection.dart';
 import 'package:json_schema2/json_schema2.dart';
 import 'package:path/path.dart' as path_lib;
 import 'package:rest_client/rest_client.dart';
-import 'package:yaon/yaon.dart' as yaon;
+import 'package:yaon/yaon.dart';
 
 typedef SchemaPropertySetter = dynamic Function(JsonSchema s, dynamic value);
 typedef SchemaAssigner = Function(JsonSchema s);
