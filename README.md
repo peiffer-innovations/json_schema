@@ -19,7 +19,7 @@
 
 # JSON Schema
 
-**NOTE**: This project is a fork from [json_schema](https://pub.dev/packages/json_schema) which itself appears to be no longer maintained.
+**NOTE**: This project is archived and discontinued.  The original library this was forked from [json_schema](https://pub.dev/packages/json_schema) is being maintained again and now supports null safety.
 
   A *platform agnostic* (dart:html or dart:io) Dart library for validating JSON instances against JSON Schemas (multi-version support with latest of Draft 6).
 

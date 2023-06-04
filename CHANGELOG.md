@@ -1,3 +1,8 @@
+## [2.0.4+9] - June 4th, 2023
+
+* Archived and discontinued.  The library this was forked from [json_schema](https://pub.dev/packages/json_schema) now supports null safety and appears to be actively maintained again.
+
+
 ## [2.0.4+8] - May 30, 2023
 
 * Automated dependency updates
