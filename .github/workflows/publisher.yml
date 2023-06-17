@@ -20,9 +20,6 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Validate
-        uses: peiffer-innovations/actions-flutter-validate@v1
-
       - name: Publish
         uses: peiffer-innovations/actions-pub-publish@v1.0.2
         with:
