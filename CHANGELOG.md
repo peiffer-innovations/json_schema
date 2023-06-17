@@ -1,3 +1,6 @@
+## 5.0.2
+- Support `http` 1.0.0 via temporary fork
+
 ## 5.0.1
 - Add an `JsonSchema.empty({SchemaVersion schemaVersion})` constructor
 
