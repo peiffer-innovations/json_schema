@@ -1,0 +1,8 @@
+platforms:
+  - vm
+  - chrome
+paths:
+  - test/unit
+
+timeout: 10s
+reporter: expanded

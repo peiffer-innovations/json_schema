@@ -1,10 +1,8 @@
 *.~*~
 .idea/
-.settings/
 .packages
 .project
 .dart_tool/
-.pub/
 *.dart.js
 *.iml
 *.ipr
@@ -14,6 +12,7 @@
 *.js.map
 build/
 coverage
-packages
 pubspec.lock
 
+.tool-versions
+asdf-dart.uUid

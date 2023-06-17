@@ -1,289 +1,125 @@
-## [2.0.4+9] - June 4th, 2023
+## 5.0.1
+- Add an `JsonSchema.empty({SchemaVersion schemaVersion})` constructor
+
+## 5.0.0
+- Clean up pubspec, add .pubignore
+- Bump minimum Dart SDK version to 2.12.0
+- Migration to null safety
+
+## 4.0.3
+- Remove usages of `.slice` to help downstream packages work around [a dart2js compiler bug](https://github.com/dart-lang/sdk/issues/48762#issuecomment-1139932469)
+
+## 4.0.2
+- Fix bug where `type` getter would throw when `typeList` was null
+
+## 4.0.1
+- Performance:
+  - cache calls to `resolvePath`
+  - `JsonSchema.schemaMap` is now truly unmodifiable (was before in practice anyway) and `hashCode` is cached by taking advantage of that.
+- 4.0 Release Mistake:
+  - `Validator.evaluatedProperties` was accidentally made public, pull it back to private.
+
+## 4.0.0
+
+json_schema 4.0 continues our journey to support additional new versions of the JSON Schema specification (Draft 2019-09 and Draft 2020-12)! Custom vocabulary and format support is also included in this release! In addition to those major features, we have better support for certain built-in formats, as well as improved spec test compliance. 
+
+We have greatly reduced the number of dependencies in preparation for a null-safety release (which we're planning in another major release). This has also come with a new Makefile instead our old `dart_dev` based commands (see README).
+
+- Additions:
+  - Support for JSON Schema Draft 2019-09 (`SchemaVersion.draft2019_09`)
+  - Support for JSON Schema Draft 2020-12 (`SchemaVersion.draft2020_12`)
+  - Default draft is still draft7 for compatibility.
+  - Custom Keywords:
+    - `List<CustomVocabulary> customVocabularies` can be passed to all JsonSchema factories.
+    - `CustomVocabulary`
+    - `CustomKeyword`
+    - `ValidationContext`
+  - Custom Formats:
+    - `Map<String, Function> customFormats` can be passed to and `JsonSchema` factory.
+    - `ValidationContext`
+- Deprecated:
+  - `validateWithResults` in favor of `validate` which now returns the same thing (`ValidationResults`).
+  - `DefaultValidators` and related globals in favor of passing `customFormats` to the `JsonSchema` factories.
+- Removed Deprecations:
+  - Removed `bin/schemadot.dart`, `lib/schema_dot.dart` and related examples
+  - Removed `lib/browser.dart` and `lib/vm.dart` and associated globals `createSchemaFromUrlBrowser`, `configureJsonSchemaForBrowser`, `globalCreateJsonSchemaFromUrl` `createSchemaFromUrlVm`, `configureJsonSchemaForVm` and `resetGlobalTransportPlatform`. These were for configuring the runtime environment, which now happens automatically.
+  - Removed `JsonSchema.createSchemaAsync` in favor of `JsonSchema.createAsync`
+  - Removed `JsonSchema.createSchema` in favor of `JsonSchema.create`
+  - Removed `JsonSchema.createSchemaFromUrl` in favor of `JsonSchema.createFromUrl`
+  - Removed `RefProvider.asyncSchema`, `RefProvider.syncSchema`, `RefProvider.asyncJson`, and `RefProvider.syncJson` in favor of `RefProvider.async` and `RefProvider.async`, which are easier to use.
+  - Removed `JsonSchema.refMap`
+- Breaking change to `validate`:
+  - now returns `ValidationResult` instead of `bool` like `validateWithResults` (now deprecated).
+- Notable change of behavior to `resolvePath` with 2019-09 and 2020-12:
+  - When used with draft 2019-09 or draft 2020-12, `$ref`s alongside other keywords, which wasn't allowed in earlier drafts, can't always be resolved. 
+  We make a best-effort to resolve authoritatively and fall back to throwing an error if the resolution is ambiguous. In future releases, we may release 
+  support for resolving this sort of ambiguity (properties + ref, sub-property of a $ref and as sub-property conflicting, etc) based on user-preference.
+  - `$dynamicRef`s cannot yet be resolved using this method (you will only receive the ref itself.)
+
+## 3.2.0
+
+* Add `Validator.validateWithResults` (This new method gives the most complete and customizable validation results)
+* Add `JsonSchema.validateWithResults`
+* Deprecate `JsonSchema.validate`
+* Deprecate `Validator.validate`
+* Deprecate `JsonSchema.validateWithErrors`
+* Deprecate `Validator.errors`
+* Deprecate `Validator.errorObjects`
+
+## 3.1.0
+
+* Remove the need for separate browser and VM imports
+* Deprecate non-json RefProviders
+* More specific missing-required property errors
+
+## 3.0.0
+
+* Removed support for Dart 1
+
+## 2.2.0
+
+* Add note about root path in error string when instance path is empty
+* Expose `ValidationError` class
+
+## 2.1.4
+
+* Use deep equality to compare maps, fixing equality when enums are present
+
+## 2.1.3
+
+* New `validateWithErrors` method on `JsonSchema` returns all validation errors as a list of objects
+* `ValidationError` objects include both instance & schema paths for each error
+* Error logic tweaked to provide consistent error paths in JSON pointer notation
+
+## 2.0.0
+
+* json_schema is no longer bound to dart:io and works in the browser!
+* Full JSON Schema draft6 compatibility
+* Much better $ref resolution, including deep nesting of $refs
+* More typed keyword getters for draft6 like `examples`
+* Synchronous schema evaluation by default
+* Optional async evaluation and fetching with `createSchemaAsync`
+* Automatic parsing of JSON strings passed to `createSchema` and `createSchemaAsync`
+* Ability to do custom resolution of $refs with `RefProvider` and `RefProviderAsync`
+* Optional parsing of JSON strings passed to `validate` with `parseJson = true`
+* Dart 2.0 compatibility
+* Many small changes to make things more in line with modern dart.
+* Please see the [migration guide](./MIGRATION.md) for additional info.
 
-* Archived and discontinued.  The library this was forked from [json_schema](https://pub.dev/packages/json_schema) now supports null safety and appears to be actively maintained again.
+## 1.0.8
 
+* Code cleanup
+* Strong mode
+* Switch build tools to dart_dev
 
-## [2.0.4+8] - May 30, 2023
+## 1.0.7
 
-* Automated dependency updates
+* Update dependency constraint on the `args` package.
 
+## 1.0.3
 
-## [2.0.4+7] - May 23, 2023
+* Add a dependency on the `args` package.
 
-* Automated dependency updates
+## 1.0.2
 
-
-## [2.0.4+6] - May 16, 2023
-
-* Automated dependency updates
-
-
-## [2.0.4+5] - May 9, 2023
-
-* Automated dependency updates
-
-
-## [2.0.4+4] - May 2, 2023
-
-* Automated dependency updates
-
-
-## [2.0.4+3] - April 25, 2023
-
-* Automated dependency updates
-
-
-## [2.0.4+2] - April 11, 2023
-
-* Automated dependency updates
-
-
-## [2.0.4+1] - April 4, 2023
-
-* Automated dependency updates
-
-
-## [2.0.4] - April 3rd, 2023
-
-* Dependency updates
-
-
-## [2.0.3+7] - March 28, 2023
-
-* Automated dependency updates
-
-
-## [2.0.3+6] - March 21, 2023
-
-* Automated dependency updates
-
-
-## [2.0.3+5] - March 7, 2023
-
-* Automated dependency updates
-
-
-## [2.0.3+4] - February 21, 2023
-
-* Automated dependency updates
-
-
-## [2.0.3+3] - February 14, 2023
-
-* Automated dependency updates
-
-
-## [2.0.3+2] - February 7, 2023
-
-* Automated dependency updates
-
-
-## [2.0.3+1] - January 31, 2023
-
-* Automated dependency updates
-
-
-## [2.0.3] - January 24th, 2022
-
-* Flutter 3.7
-
-
-## [2.0.2+21] - January 24, 2023
-
-* Automated dependency updates
-
-
-## [2.0.2+20] - January 17, 2023
-
-* Automated dependency updates
-
-
-## [2.0.2+19] - January 3, 2023
-
-* Automated dependency updates
-
-
-## [2.0.2+18] - November 15, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+17] - November 8, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+16] - November 1, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+15] - October 25, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+14] - October 18, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+13] - October 11, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+12] - September 20, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+11] - September 13, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+10] - September 6, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+9] - August 30, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+8] - August 9, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+7] - July 19, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+6] - July 12, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+5] - July 5, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+4] - June 28, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+3] - June 21, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+2] - June, 7, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2+1] - May, 31, 2022
-
-* Automated dependency updates
-
-
-## [2.0.2] - April 16th, 2022
-
-* Updated to accept the schema as JSON or YAML
-
-
-## [2.0.1+2] - February 27th, 2022
-
-* Readme update
-
-
-## [2.0.1+1] - February 6th, 2022
-
-* GH Workflow update
-
-
-## [2.0.1] - January 4th, 2022
-
-* Revert path back to 1.8.0
-
-
-## [2.0.0+5] - January 3rd, 2022
-
-* Dart 2.15
-
-
-## [2.0.0+4] - November 14th, 2021
-
-* Changed GitHub publisher
-
-
-## [2.0.0+3] - September 19th, 2021
-
-* Dependency updates
-
-
-## [2.0.0+2] - May 29th, 2021
-
-* Static code analysis updates
-
-
-## [2.0.0+1] - April 30th, 2021
-
-* Dependency updates
-
-
-## [2.0.0] - March 7th, 2021
-
-* Null Safety
-* Assistance requested if you have issues, the Null Safety conversion was big, and I tested as best as I could myself.
-
-
-## [1.0.0+1] - December 13th, 2020
-
-* Updated dependencies
-
-
-## [1.0.0] - December 13th, 2020
-
-* Initial release as fork from https://github.com/Workiva/json_schema to update outdated code / dependencies.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* Add a dependency on the `logging` package.
