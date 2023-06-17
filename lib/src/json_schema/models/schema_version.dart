@@ -51,7 +51,8 @@ class SchemaVersion implements Comparable<SchemaVersion> {
 
   static const SchemaVersion defaultVersion = SchemaVersion.draft7;
 
-  static List<SchemaVersion> get values => const <SchemaVersion>[draft4, draft6, draft7, draft2019_09, draft2020_12];
+  static List<SchemaVersion> get values =>
+      const <SchemaVersion>[draft4, draft6, draft7, draft2019_09, draft2020_12];
 
   final int value;
 
@@ -59,17 +60,22 @@ class SchemaVersion implements Comparable<SchemaVersion> {
   int get hashCode => value;
 
   @override
-  bool operator ==(Object other) => other is SchemaVersion && other.hashCode == hashCode;
+  bool operator ==(Object other) =>
+      other is SchemaVersion && other.hashCode == hashCode;
 
   SchemaVersion copy() => this;
 
   @override
   int compareTo(SchemaVersion other) => value.compareTo(other.value);
 
-  bool operator <(Object other) => other is SchemaVersion && compareTo(other) < 0;
-  bool operator >(Object other) => other is SchemaVersion && compareTo(other) > 0;
-  bool operator <=(Object other) => other is SchemaVersion && compareTo(other) <= 0;
-  bool operator >=(Object other) => other is SchemaVersion && compareTo(other) >= 0;
+  bool operator <(Object other) =>
+      other is SchemaVersion && compareTo(other) < 0;
+  bool operator >(Object other) =>
+      other is SchemaVersion && compareTo(other) > 0;
+  bool operator <=(Object other) =>
+      other is SchemaVersion && compareTo(other) <= 0;
+  bool operator >=(Object other) =>
+      other is SchemaVersion && compareTo(other) >= 0;
 
   @override
   String toString() {

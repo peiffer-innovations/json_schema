@@ -39,13 +39,16 @@ main() {
       expect(ref.ref == null, false);
     });
 
-    test('should continue resolving in the current node even if there is a ref', () {
-      final ref = testSchema.resolvePath(Uri.parse('#/properties/baz/properties/findMe'));
+    test('should continue resolving in the current node even if there is a ref',
+        () {
+      final ref = testSchema
+          .resolvePath(Uri.parse('#/properties/baz/properties/findMe'));
       expect(ref.constValue, 'is found');
     });
 
     test('should follow the ref and continue resolving', () {
-      final ref = testSchema.resolvePath(Uri.parse('#/properties/baz/properties/deeper'));
+      final ref = testSchema
+          .resolvePath(Uri.parse('#/properties/baz/properties/deeper'));
       expect(ref.constValue, 'deeper in the schema');
     });
 
@@ -63,7 +66,8 @@ main() {
           }
         }
       });
-      expect(() => testSchema.resolvePath(Uri.parse('#/properties/a')), throwsException);
+      expect(() => testSchema.resolvePath(Uri.parse('#/properties/a')),
+          throwsException);
     });
 
     test('should throw an exception when there in an ambiguous path', () {
@@ -83,7 +87,8 @@ main() {
           }
         }
       }, schemaVersion: SchemaVersion.draft2020_12);
-      expect(() => schema.resolvePath(Uri.parse('#/properties/Q/a')), throwsException);
+      expect(() => schema.resolvePath(Uri.parse('#/properties/Q/a')),
+          throwsException);
     });
   });
 }

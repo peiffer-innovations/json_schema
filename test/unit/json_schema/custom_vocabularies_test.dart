@@ -66,11 +66,16 @@ main() {
 
       expect(
           // ignore: deprecated_member_use_from_same_package
-          schema.properties['publishedOn']!.customAttributeValidators.keys.contains('minDate'),
+          schema.properties['publishedOn']!.customAttributeValidators.keys
+              .contains('minDate'),
           isTrue);
 
-      expect(schema.validate({'baz': 'foo', 'publishedOn': '2970-01-01'}).isValid, isTrue);
-      expect(schema.validate({'baz': 'foo', 'publishedOn': '1970-01-01'}).isValid, isFalse);
+      expect(
+          schema.validate({'baz': 'foo', 'publishedOn': '2970-01-01'}).isValid,
+          isTrue);
+      expect(
+          schema.validate({'baz': 'foo', 'publishedOn': '1970-01-01'}).isValid,
+          isFalse);
     });
 
     test('throws an exception with a bad schema', () async {
@@ -115,7 +120,8 @@ Object _minDateSetter(JsonSchema s, Object? value) {
   }
 }
 
-ValidationContext _validateMinDate(ValidationContext context, Object schema, Object instance) {
+ValidationContext _validateMinDate(
+    ValidationContext context, Object schema, Object instance) {
   if (schema is! DateTime) {
     context.addError('schema is not a date time object.');
   }

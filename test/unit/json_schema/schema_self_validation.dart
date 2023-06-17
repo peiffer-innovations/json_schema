@@ -41,7 +41,8 @@ import 'package:test/test.dart';
 
 void main() {
   group('Schema self validation', () {
-    for (final version in SchemaVersion.values.map((value) => value.toString())) {
+    for (final version
+        in SchemaVersion.values.map((value) => value.toString())) {
       test('version: $version', () {
         // Pull in the official schema, verify description and then ensure
         // that the schema satisfies the schema for schemas.

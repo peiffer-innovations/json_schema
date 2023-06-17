@@ -66,9 +66,11 @@ class JsonSchemaUtils {
   }
 }
 
-@Deprecated('4.0, to be removed in 5.0, use customVocabularies param of JsonSchema factories instead.')
+@Deprecated(
+    '4.0, to be removed in 5.0, use customVocabularies param of JsonSchema factories instead.')
 class DefaultValidators {
-  emailValidator(String email) => JsonSchemaValidationRegexes.email.firstMatch(email) != null;
+  emailValidator(String email) =>
+      JsonSchemaValidationRegexes.email.firstMatch(email) != null;
 
   uriValidator(String uri) {
     try {

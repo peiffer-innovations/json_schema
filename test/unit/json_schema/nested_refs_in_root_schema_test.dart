@@ -51,7 +51,9 @@ main() {
     });
   });
 
-  test('Recursive refs from a remote schema should be supported with a json provider', () async {
+  test(
+      'Recursive refs from a remote schema should be supported with a json provider',
+      () async {
     final RefProvider syncRefJsonProvider = RefProvider.sync((String ref) {
       switch (ref) {
         case 'http://localhost:1234/tree.json':

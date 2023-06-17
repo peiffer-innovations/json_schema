@@ -49,22 +49,30 @@ import '../specification_remotes.dart';
 import '../specification_tests.dart';
 
 void main() {
-  final allDraft4 =
-      specificationTests.entries.where((MapEntry<String, String> entry) => entry.key.startsWith('/draft4'));
-  final allDraft6 =
-      specificationTests.entries.where((MapEntry<String, String> entry) => entry.key.startsWith('/draft6'));
-  final allDraft7 =
-      specificationTests.entries.where((MapEntry<String, String> entry) => entry.key.startsWith('/draft7'));
-  final allDraft2019 =
-      specificationTests.entries.where((MapEntry<String, String> entry) => entry.key.startsWith('/draft2019-09'));
-  final draft2019Format = specificationTests.entries
-      .where((MapEntry<String, String> entry) => entry.key.startsWith('/draft2019-09/optional/format'));
-  final allDraft2020 =
-      specificationTests.entries.where((MapEntry<String, String> entry) => entry.key.startsWith('/draft2020-12'));
+  final allDraft4 = specificationTests.entries.where(
+      (MapEntry<String, String> entry) => entry.key.startsWith('/draft4'));
+  final allDraft6 = specificationTests.entries.where(
+      (MapEntry<String, String> entry) => entry.key.startsWith('/draft6'));
+  final allDraft7 = specificationTests.entries.where(
+      (MapEntry<String, String> entry) => entry.key.startsWith('/draft7'));
+  final allDraft2019 = specificationTests.entries.where(
+      (MapEntry<String, String> entry) =>
+          entry.key.startsWith('/draft2019-09'));
+  final draft2019Format = specificationTests.entries.where(
+      (MapEntry<String, String> entry) =>
+          entry.key.startsWith('/draft2019-09/optional/format'));
+  final allDraft2020 = specificationTests.entries.where(
+      (MapEntry<String, String> entry) =>
+          entry.key.startsWith('/draft2020-12'));
 
-  runAllTestsForDraftX(SchemaVersion schemaVersion, Iterable<MapEntry<String, String>> allTests, List<String> skipFiles,
+  runAllTestsForDraftX(
+      SchemaVersion schemaVersion,
+      Iterable<MapEntry<String, String>> allTests,
+      List<String> skipFiles,
       List<String> skipTests,
-      {bool isSync = false, bool? validateFormats, RefProvider? refProvider}) {
+      {bool isSync = false,
+      bool? validateFormats,
+      RefProvider? refProvider}) {
     String shortSchemaVersion = schemaVersion.toString();
     if (schemaVersion == SchemaVersion.draft4) {
       shortSchemaVersion = 'draft4';
@@ -79,8 +87,10 @@ void main() {
     }
 
     for (final testEntry in allTests) {
-      checkResult(List<ValidationError> validationResults, bool? expectedResult) {
-        if (validationResults.isEmpty != expectedResult && expectedResult == true) {
+      checkResult(
+          List<ValidationError> validationResults, bool? expectedResult) {
+        if (validationResults.isEmpty != expectedResult &&
+            expectedResult == true) {
           for (final error in validationResults) {
             print(error);
           }
@@ -88,7 +98,8 @@ void main() {
         expect(validationResults.isEmpty, expectedResult);
       }
 
-      group('Validations ($shortSchemaVersion) ${path.basename(testEntry.key)}', () {
+      group('Validations ($shortSchemaVersion) ${path.basename(testEntry.key)}',
+          () {
         // Skip these for now - reason shown.
         if (skipFiles.contains(path.basename(testEntry.key))) return;
 
@@ -116,13 +127,16 @@ void main() {
                   schemaVersion: schemaVersion,
                   refProvider: refProvider,
                 );
-                validationResults = schema.validate(instance, validateFormats: validateFormats);
+                validationResults =
+                    schema.validate(instance, validateFormats: validateFormats);
                 expect(validationResults.isValid, expectedResult);
               } else {
                 final checkResultAsync = expectAsync2(checkResult);
-                JsonSchema.createAsync(schemaData, schemaVersion: schemaVersion, refProvider: refProvider)
+                JsonSchema.createAsync(schemaData,
+                        schemaVersion: schemaVersion, refProvider: refProvider)
                     .then((schema) {
-                  validationResults = schema.validate(instance, validateFormats: validateFormats);
+                  validationResults = schema.validate(instance,
+                      validateFormats: validateFormats);
                   checkResultAsync(validationResults!.errors, expectedResult);
                 });
               }

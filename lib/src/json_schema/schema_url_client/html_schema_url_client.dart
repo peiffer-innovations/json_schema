@@ -19,7 +19,11 @@ class HtmlSchemaUrlClient extends SchemaUrlClient {
     String schemaUrl, {
     SchemaVersion? schemaVersion,
     List<CustomVocabulary>? customVocabularies,
-    Map<String, ValidationContext Function(ValidationContext context, String? instanceData)> customFormats = const {},
+    Map<
+            String,
+            ValidationContext Function(
+                ValidationContext context, String? instanceData)>
+        customFormats = const {},
   }) async {
     final uriWithFrag = Uri.parse(schemaUrl);
     var uri = uriWithFrag.removeFragment();
@@ -47,10 +51,12 @@ class HtmlSchemaUrlClient extends SchemaUrlClient {
         customVocabularies: customVocabularies,
         customFormats: customFormats,
       );
-      final schema = JsonSchemaUtils.getSubMapFromFragment(parentSchema, uriWithFrag);
+      final schema =
+          JsonSchemaUtils.getSubMapFromFragment(parentSchema, uriWithFrag);
       return schema ?? parentSchema;
     } else {
-      throw FormatException('Url schema must be http: $schemaUrl. To use a local file, use dart:io');
+      throw FormatException(
+          'Url schema must be http: $schemaUrl. To use a local file, use dart:io');
     }
   }
 
@@ -84,7 +90,8 @@ class HtmlSchemaUrlClient extends SchemaUrlClient {
       }
       return subSchema ?? jsonResponse;
     } else {
-      throw FormatException('Url schema must be http: $schemaUrl. To use a local file, use dart:io');
+      throw FormatException(
+          'Url schema must be http: $schemaUrl. To use a local file, use dart:io');
     }
   }
 }

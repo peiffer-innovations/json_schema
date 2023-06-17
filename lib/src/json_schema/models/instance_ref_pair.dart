@@ -51,9 +51,11 @@ class InstanceRefPair {
   toString() => "${ref.toString()}: $path";
 
   @override
-  bool operator ==(Object other) => other is InstanceRefPair && hashCode == other.hashCode;
+  bool operator ==(Object other) =>
+      other is InstanceRefPair && hashCode == other.hashCode;
 
   @override
   // This can be replaced with Object.hash() once the minimum language version is set to 2.14
-  int get hashCode => _hashCode ?? (_hashCode = Hasher.hash2(path.hashCode, ref.hashCode));
+  int get hashCode =>
+      _hashCode ?? (_hashCode = Hasher.hash2(path.hashCode, ref.hashCode));
 }

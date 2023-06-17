@@ -41,7 +41,8 @@ import 'package:json_schema/src/json_schema/utils/utils.dart';
 
 /// Default validators for all [JsonSchema]s.
 // ignore: deprecated_member_use_from_same_package
-DefaultValidators get defaultValidators => _defaultValidators ?? DefaultValidators();
+DefaultValidators get defaultValidators =>
+    _defaultValidators ?? DefaultValidators();
 // ignore: deprecated_member_use_from_same_package
 set defaultValidators(DefaultValidators? defaultValidators) {
   if (defaultValidators == null) {

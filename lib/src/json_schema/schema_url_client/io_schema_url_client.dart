@@ -20,10 +20,15 @@ class IoSchemaUrlClient extends SchemaUrlClient {
     String schemaUrl, {
     SchemaVersion? schemaVersion,
     List<CustomVocabulary>? customVocabularies,
-    Map<String, ValidationContext Function(ValidationContext context, String? instanceData)> customFormats = const {},
+    Map<
+            String,
+            ValidationContext Function(
+                ValidationContext context, String? instanceData)>
+        customFormats = const {},
   }) async {
     final uriWithFrag = Uri.parse(schemaUrl);
-    final uri = schemaUrl.endsWith('#') ? uriWithFrag : uriWithFrag.removeFragment();
+    final uri =
+        schemaUrl.endsWith('#') ? uriWithFrag : uriWithFrag.removeFragment();
     Map<String, dynamic>? schemaMap;
     if (uri.scheme == 'http' || uri.scheme == 'https') {
       // Setup the HTTP request.
@@ -39,10 +44,13 @@ class IoSchemaUrlClient extends SchemaUrlClient {
       final schemaText = await convert.Utf8Decoder().bind(response).join();
       schemaMap = json.decode(schemaText);
     } else if (uri.scheme == 'file' || uri.scheme == '') {
-      final fileString = await File(uri.scheme == 'file' ? uri.toFilePath() : schemaUrl).readAsString();
+      final fileString =
+          await File(uri.scheme == 'file' ? uri.toFilePath() : schemaUrl)
+              .readAsString();
       schemaMap = json.decode(fileString);
     } else {
-      throw FormatException('Url schema must be http, file, or empty: $schemaUrl');
+      throw FormatException(
+          'Url schema must be http, file, or empty: $schemaUrl');
     }
     // HTTP servers / file systems ignore fragments, so resolve a sub-map if a fragment was specified.
     final parentSchema = await JsonSchema.createAsync(
@@ -52,14 +60,16 @@ class IoSchemaUrlClient extends SchemaUrlClient {
       customVocabularies: customVocabularies,
       customFormats: customFormats,
     );
-    final schema = JsonSchemaUtils.getSubMapFromFragment(parentSchema, uriWithFrag);
+    final schema =
+        JsonSchemaUtils.getSubMapFromFragment(parentSchema, uriWithFrag);
     return schema ?? parentSchema;
   }
 
   @override
   Future<Map<String, dynamic>?> getSchemaJsonFromUrl(String schemaUrl) async {
     final uriWithFrag = Uri.parse(schemaUrl);
-    final uri = schemaUrl.endsWith('#') ? uriWithFrag : uriWithFrag.removeFragment();
+    final uri =
+        schemaUrl.endsWith('#') ? uriWithFrag : uriWithFrag.removeFragment();
     Map<String, dynamic>? schemaMap;
     if (uri.scheme == 'http' || uri.scheme == 'https') {
       // Setup the HTTP request.
@@ -75,15 +85,19 @@ class IoSchemaUrlClient extends SchemaUrlClient {
       final schemaText = await convert.Utf8Decoder().bind(response).join();
       schemaMap = json.decode(schemaText);
     } else if (uri.scheme == 'file' || uri.scheme == '') {
-      final fileString = await File(uri.scheme == 'file' ? uri.toFilePath() : schemaUrl).readAsString();
+      final fileString =
+          await File(uri.scheme == 'file' ? uri.toFilePath() : schemaUrl)
+              .readAsString();
       schemaMap = json.decode(fileString);
     } else {
-      throw FormatException('Url schema must be http, file, or empty: $schemaUrl');
+      throw FormatException(
+          'Url schema must be http, file, or empty: $schemaUrl');
     }
     // HTTP servers ignore fragments, so resolve a sub-map if a fragment was specified.
     Map<String, dynamic>? subSchema;
     try {
-      subSchema = JsonPointer(uriWithFrag.fragment).read(schemaMap) as Map<String, dynamic>;
+      subSchema = JsonPointer(uriWithFrag.fragment).read(schemaMap)
+          as Map<String, dynamic>;
     } catch (_) {
       // Do nothing if we fail to decode or read the pointer.
     }

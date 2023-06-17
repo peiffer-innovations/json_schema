@@ -40,7 +40,8 @@ import 'package:json_schema/src/json_schema/models/schema_version.dart';
 import 'package:json_schema/src/json_schema/models/validation_context.dart';
 
 class ConcreteValidationContext implements ValidationContext {
-  ConcreteValidationContext(this._instancePath, this._schemaPath, this._errFn, this._warnFn, this.schemaVersion);
+  ConcreteValidationContext(this._instancePath, this._schemaPath, this._errFn,
+      this._warnFn, this.schemaVersion);
 
   final String _instancePath;
   final String _schemaPath;

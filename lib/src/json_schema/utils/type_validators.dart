@@ -22,7 +22,8 @@ class TypeValidators {
     for (final _ in enumValues) {
       for (int j = i + 1; j < enumValues.length; j++) {
         if (DeepCollectionEquality().equals(enumValues[i], enumValues[j])) {
-          throw FormatExceptions.error('enum values must be unique: $value [$i]==[$j]');
+          throw FormatExceptions.error(
+              'enum values must be unique: $value [$i]==[$j]');
         }
       }
       i++;
@@ -49,7 +50,8 @@ class TypeValidators {
     } else if (value is List) {
       typeList = value.map((v) => SchemaType.fromString(v)).toList();
     } else {
-      throw FormatExceptions.error('$key must be string or array: ${value.runtimeType}');
+      throw FormatExceptions.error(
+          '$key must be string or array: ${value.runtimeType}');
     }
     if (!typeList.contains(null)) {
       return typeList;

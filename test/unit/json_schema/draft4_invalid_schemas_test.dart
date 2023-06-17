@@ -46,7 +46,8 @@ import 'package:path/path.dart' as path;
 import 'package:test/test.dart';
 
 void main() {
-  final Directory testSuiteFolder = Directory('./test/custom/invalid_schemas/draft4');
+  final Directory testSuiteFolder =
+      Directory('./test/custom/invalid_schemas/draft4');
 
   testSuiteFolder.listSync().forEach((testEntry) {
     final String shortName = path.basename(testEntry.path);
@@ -63,7 +64,8 @@ void main() {
             });
 
             try {
-              await JsonSchema.createAsync(schemaData, schemaVersion: SchemaVersion.draft4);
+              await JsonSchema.createAsync(schemaData,
+                  schemaVersion: SchemaVersion.draft4);
               fail('Schema is expected to be invalid, but was not.');
             } catch (e) {
               catchException(e);

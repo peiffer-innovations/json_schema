@@ -56,5 +56,7 @@ class CustomKeyword {
   final Object Function(JsonSchema schema, Object? value) propertySetter;
 
   /// Function used to validate a json value.
-  final ValidationContext Function(ValidationContext context, Object schemaProperty, Object instanceData) validator;
+  final ValidationContext Function(
+          ValidationContext context, Object schemaProperty, Object instanceData)
+      validator;
 }

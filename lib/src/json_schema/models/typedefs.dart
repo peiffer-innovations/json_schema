@@ -41,7 +41,8 @@ import 'dart:async';
 import 'package:json_schema/src/json_schema/json_schema.dart';
 import 'package:json_schema/src/json_schema/models/schema_version.dart';
 
-typedef CreateJsonSchemaFromUrl = Future<JsonSchema> Function(String schemaUrl, {SchemaVersion? schemaVersion});
+typedef CreateJsonSchemaFromUrl = Future<JsonSchema> Function(String schemaUrl,
+    {SchemaVersion? schemaVersion});
 typedef SchemaPropertySetter = Object? Function(JsonSchema s, Object? value);
 typedef SchemaPropertyGetter = Object? Function(JsonSchema s);
 typedef SchemaAssigner = Function(JsonSchema s);

@@ -8,7 +8,8 @@ Map<String, String> specificationRemotes = {
     "type": "integer"
 }
 """,
-  "http://localhost:1234/baseUriChangeFolderInSubschema/folderInteger.json": r"""{
+  "http://localhost:1234/baseUriChangeFolderInSubschema/folderInteger.json":
+      r"""{
     "type": "integer"
 }
 """,
