@@ -36,7 +36,7 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //     THE SOFTWARE.
 
-import 'package:json_schema/src/json_schema/models/schema_version.dart';
+import 'package:json_schema2/src/json_schema/models/schema_version.dart';
 
 /// [ValidationContext] is the public interface for an object keeping track of the current validation state.
 /// A concrete instance is passed into the validation function an updated is return from the validation function.

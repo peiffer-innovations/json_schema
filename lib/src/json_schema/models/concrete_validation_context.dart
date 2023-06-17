@@ -36,8 +36,8 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //     THE SOFTWARE.
 
-import 'package:json_schema/src/json_schema/models/schema_version.dart';
-import 'package:json_schema/src/json_schema/models/validation_context.dart';
+import 'package:json_schema2/src/json_schema/models/schema_version.dart';
+import 'package:json_schema2/src/json_schema/models/validation_context.dart';
 
 class ConcreteValidationContext implements ValidationContext {
   ConcreteValidationContext(this._instancePath, this._schemaPath, this._errFn,

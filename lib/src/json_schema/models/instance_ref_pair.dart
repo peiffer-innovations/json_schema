@@ -36,7 +36,7 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //     THE SOFTWARE.
 
-import 'package:json_schema/src/json_schema/utils/utils.dart';
+import 'package:json_schema2/src/json_schema/utils/utils.dart';
 
 /// Used for cycle detection when resolving references.
 class InstanceRefPair {

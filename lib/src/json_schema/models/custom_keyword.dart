@@ -36,8 +36,8 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //     THE SOFTWARE.
 
-import 'package:json_schema/src/json_schema/json_schema.dart';
-import 'package:json_schema/src/json_schema/models/validation_context.dart';
+import 'package:json_schema2/src/json_schema/json_schema.dart';
+import 'package:json_schema2/src/json_schema/models/validation_context.dart';
 
 /// A class to contain the set of functions for setting and validating keywords in a custom vocabulary.
 ///

@@ -1,5 +1,5 @@
-import 'package:json_schema/src/json_schema/formats/validation_regexes.dart';
-import 'package:json_schema/src/json_schema/models/validation_context.dart';
+import 'package:json_schema2/src/json_schema/formats/validation_regexes.dart';
+import 'package:json_schema2/src/json_schema/models/validation_context.dart';
 
 ValidationContext defaultIpv4Validator(
     ValidationContext context, String instanceData) {

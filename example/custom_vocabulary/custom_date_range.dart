@@ -37,7 +37,7 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //     THE SOFTWARE
 
-import 'package:json_schema/json_schema.dart';
+import 'package:json_schema2/json_schema.dart';
 
 main() async {
   // The meta-schema is pulled in while processing the schema.
@@ -77,7 +77,8 @@ Object _dateSetter(JsonSchema s, Object? value) {
 }
 
 // Validate the given data against the property.
-ValidationContext _validateMinDate(ValidationContext context, Object schemaProperty, Object instanceData) {
+ValidationContext _validateMinDate(
+    ValidationContext context, Object schemaProperty, Object instanceData) {
   if (schemaProperty is! DateTime) {
     context.addError('schema is not a date time object.');
   }
@@ -99,7 +100,8 @@ ValidationContext _validateMinDate(ValidationContext context, Object schemaPrope
 }
 
 // Validate the given data against the property.
-ValidationContext _validateMaxDate(ValidationContext context, Object schemaProperty, Object instanceData) {
+ValidationContext _validateMaxDate(
+    ValidationContext context, Object schemaProperty, Object instanceData) {
   if (schemaProperty is! DateTime) {
     context.addError('schema is not a date time object.');
   }

@@ -39,7 +39,7 @@
 
 import 'dart:io';
 
-import 'package:json_schema/json_schema.dart';
+import 'package:json_schema2/json_schema.dart';
 
 main() async {
   final file = "example/readme/asynchronous_creation/geo.schema.json";

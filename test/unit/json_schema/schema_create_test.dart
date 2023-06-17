@@ -2,7 +2,7 @@
 
 import 'dart:collection';
 
-import 'package:json_schema/json_schema.dart';
+import 'package:json_schema2/json_schema.dart';
 import 'package:test/test.dart';
 
 void main() {

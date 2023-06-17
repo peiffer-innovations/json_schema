@@ -1,7 +1,7 @@
 @TestOn('vm')
 // Runs on VM because filesystem paths can only be resolved on a server.
 
-import 'package:json_schema/json_schema.dart';
+import 'package:json_schema2/json_schema.dart';
 import 'package:test/test.dart';
 
 main() {

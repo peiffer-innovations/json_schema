@@ -36,7 +36,7 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //     THE SOFTWARE.
 
-import 'package:json_schema/src/json_schema/validator.dart';
+import 'package:json_schema2/src/json_schema/validator.dart';
 
 /// The result of validating data against a schema
 class ValidationResults {

@@ -36,8 +36,8 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //     THE SOFTWARE.
 
-import 'package:json_schema/src/json_schema/json_schema.dart';
-import 'package:json_schema/src/json_schema/utils/utils.dart';
+import 'package:json_schema2/src/json_schema/json_schema.dart';
+import 'package:json_schema2/src/json_schema/utils/utils.dart';
 
 /// Internal class used as a key in a map for tracking resolved references.
 class SchemaPathPair {

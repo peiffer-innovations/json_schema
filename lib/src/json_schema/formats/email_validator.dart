@@ -1,5 +1,5 @@
-import 'package:json_schema/src/json_schema/global_platform_functions.dart';
-import 'package:json_schema/src/json_schema/models/validation_context.dart';
+import 'package:json_schema2/src/json_schema/global_platform_functions.dart';
+import 'package:json_schema2/src/json_schema/models/validation_context.dart';
 
 ValidationContext defaultEmailValidator(
     ValidationContext context, String instanceData) {

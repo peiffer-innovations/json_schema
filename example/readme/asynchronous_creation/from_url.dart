@@ -39,10 +39,11 @@
 
 import 'dart:io';
 
-import 'package:json_schema/json_schema.dart';
+import 'package:json_schema2/json_schema.dart';
 
 main() async {
-  final url = "https://raw.githubusercontent.com/json-schema-org/JSON-Schema-Test-Suite/master/remotes/integer.json";
+  final url =
+      "https://raw.githubusercontent.com/json-schema-org/JSON-Schema-Test-Suite/master/remotes/integer.json";
 
   final schema = await JsonSchema.createFromUrl(url);
 

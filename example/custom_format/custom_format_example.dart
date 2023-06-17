@@ -36,9 +36,10 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //     THE SOFTWARE.
 
-import 'package:json_schema/json_schema.dart';
+import 'package:json_schema2/json_schema.dart';
 
-ValidationContext screamingCapsValidator(ValidationContext context, String instanceData) {
+ValidationContext screamingCapsValidator(
+    ValidationContext context, String instanceData) {
   if (instanceData.toUpperCase() != instanceData) {
     context.addError('"screaming-caps" format not accepted $instanceData');
   }

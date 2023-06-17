@@ -41,16 +41,16 @@ import 'dart:core';
 import 'dart:math';
 
 import 'package:collection/collection.dart';
-import 'package:json_schema/src/json_schema/formats/validators.dart';
-import 'package:json_schema/src/json_schema/models/concrete_validation_context.dart';
-import 'package:json_schema/src/json_schema/models/instance.dart';
-import 'package:json_schema/src/json_schema/models/instance_ref_pair.dart';
-import 'package:json_schema/src/json_schema/models/schema_version.dart';
-import 'package:json_schema/src/json_schema/models/validation_results.dart';
+import 'package:json_schema2/src/json_schema/formats/validators.dart';
+import 'package:json_schema2/src/json_schema/models/concrete_validation_context.dart';
+import 'package:json_schema2/src/json_schema/models/instance.dart';
+import 'package:json_schema2/src/json_schema/models/instance_ref_pair.dart';
+import 'package:json_schema2/src/json_schema/models/schema_version.dart';
+import 'package:json_schema2/src/json_schema/models/validation_results.dart';
 import 'package:logging/logging.dart';
 
-import 'package:json_schema/src/json_schema/json_schema.dart';
-import 'package:json_schema/src/json_schema/models/schema_type.dart';
+import 'package:json_schema2/src/json_schema/json_schema.dart';
+import 'package:json_schema2/src/json_schema/models/schema_type.dart';
 
 final Logger _logger = Logger('Validator');
 

@@ -1,5 +1,5 @@
-import 'package:json_schema/src/json_schema/formats/date_time_validator.dart';
-import 'package:json_schema/src/json_schema/models/validation_context.dart';
+import 'package:json_schema2/src/json_schema/formats/date_time_validator.dart';
+import 'package:json_schema2/src/json_schema/models/validation_context.dart';
 
 import 'date_validator.dart';
 import 'duration_validator.dart';

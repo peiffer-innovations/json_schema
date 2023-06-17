@@ -39,14 +39,15 @@
 
 import 'dart:convert';
 
-import 'package:json_schema/json_schema.dart';
+import 'package:json_schema2/json_schema.dart';
 
 main() {
   final referencedSchema = {
     r"$id": "https://example.com/geographical-location.schema.json",
     r"$schema": "http://json-schema.org/draft-06/schema#",
     "title": "Longitude and Latitude",
-    "description": "A geographical coordinate on a planet (most commonly Earth).",
+    "description":
+        "A geographical coordinate on a planet (most commonly Earth).",
     "required": ["latitude", "longitude"],
     "type": "object",
     "properties": {
@@ -99,6 +100,7 @@ main() {
     }
   ];
 
-  print('${json.encode(workivaLocations)} => ${schema.validate(workivaLocations)}');
+  print(
+      '${json.encode(workivaLocations)} => ${schema.validate(workivaLocations)}');
   print('${json.encode(badLocations)} => ${schema.validate(badLocations)}');
 }

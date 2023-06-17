@@ -2,15 +2,15 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:convert' as convert;
 
-import 'package:json_schema/src/json_schema/models/schema_version.dart';
-import 'package:json_schema/src/json_schema/models/validation_context.dart';
+import 'package:json_schema2/src/json_schema/models/schema_version.dart';
+import 'package:json_schema2/src/json_schema/models/validation_context.dart';
 import 'package:logging/logging.dart';
 import 'package:rfc_6901/rfc_6901.dart';
 
-import 'package:json_schema/src/json_schema/models/custom_vocabulary.dart';
-import 'package:json_schema/src/json_schema/json_schema.dart';
-import 'package:json_schema/src/json_schema/utils/utils.dart';
-import 'package:json_schema/src/json_schema/schema_url_client/schema_url_client.dart';
+import 'package:json_schema2/src/json_schema/models/custom_vocabulary.dart';
+import 'package:json_schema2/src/json_schema/json_schema.dart';
+import 'package:json_schema2/src/json_schema/utils/utils.dart';
+import 'package:json_schema2/src/json_schema/schema_url_client/schema_url_client.dart';
 
 final Logger _logger = Logger('IoSchemaUrlClient');
 
