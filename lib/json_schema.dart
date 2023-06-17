@@ -36,12 +36,12 @@
 //     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //     THE SOFTWARE.
 
-export 'src//json_schema/json_schema.dart' show JsonSchema;
-export 'src//json_schema/models/custom_keyword.dart' show CustomKeyword;
-export 'src//json_schema/models/custom_vocabulary.dart' show CustomVocabulary;
-export 'src//json_schema/models/ref_provider.dart'
+export 'src/json_schema/json_schema.dart' show JsonSchema;
+export 'src/json_schema/models/custom_keyword.dart' show CustomKeyword;
+export 'src/json_schema/models/custom_vocabulary.dart' show CustomVocabulary;
+export 'src/json_schema/models/ref_provider.dart'
     show RefProvider, defaultUrlRefProvider;
-export 'src//json_schema/models/schema_type.dart' show SchemaType;
-export 'src//json_schema/models/schema_version.dart' show SchemaVersion;
-export 'src//json_schema/models/validation_context.dart' show ValidationContext;
-export 'src//json_schema/validator.dart' show Validator, ValidationError;
+export 'src/json_schema/models/schema_type.dart' show SchemaType;
+export 'src/json_schema/models/schema_version.dart' show SchemaVersion;
+export 'src/json_schema/models/validation_context.dart' show ValidationContext;
+export 'src/json_schema/validator.dart' show Validator, ValidationError;
