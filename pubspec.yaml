@@ -1,22 +1,22 @@
-name: json_schema2
-version: 5.1.2+2
-description: JSON Schema implementation in Dart
-homepage: https://github.com/workiva/json_schema
+name: 'json_schema2'
+version: '5.1.2+3'
+description: 'JSON Schema implementation in Dart'
+homepage: 'https://github.com/workiva/json_schema'
 
-environment:
+environment: 
   sdk: '>=2.12.0 <3.0.0'
 
-dependencies:
-  collection: ^1.15.0
+dependencies: 
+  collection: '^1.17.2'
   http: '>=0.13.4 <2.0.0'
-  logging: ^1.0.0
-  rfc_6901: ^0.1.0
+  logging: '^1.2.0'
+  rfc_6901: '^0.1.1'
   uri: '>=0.11.1 <2.0.0'
 
-dev_dependencies:
-  dependency_validator: ^3.1.2
-  path: ^1.8.0
-  shelf: ^1.0.0
-  shelf_static: ^1.0.0
-  test: ^1.17.0
-  workiva_analysis_options: ^1.2.2
+dev_dependencies: 
+  dependency_validator: '^3.2.2'
+  path: '^1.8.3'
+  shelf: '^1.4.1'
+  shelf_static: '^1.1.2'
+  test: '^1.24.3'
+  workiva_analysis_options: '^1.3.0'

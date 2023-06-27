@@ -1,3 +1,8 @@
+## [5.1.2+3] - June 27, 2023
+
+* Automated dependency updates
+
+
 ## 5.0.2+2
 - Support `http` 1.0.0 via temporary fork
 
@@ -126,3 +131,4 @@ We have greatly reduced the number of dependencies in preparation for a null-saf
 ## 1.0.2
 
 * Add a dependency on the `logging` package.
+
