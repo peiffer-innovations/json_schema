@@ -1,3 +1,6 @@
+## 5.1.2+1
+- Widen range on `rfc_6901` to include 0.2.0
+
 ## 5.1.2
 - Widen range on `http` to include 1.0.0
 
