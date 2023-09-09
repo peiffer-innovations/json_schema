@@ -1,27 +1,6 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [JSON Schema](#json-schema)
-  - [Getting Started](#getting-started)
-    - [Alternative Test Running Strategy (To run specific tests, or pass other args to `dart test`):](#alternative-test-running-strategy-to-run-specific-tests-or-pass-other-args-to-dart-test)
-    - [Updating Test Fixtures](#updating-test-fixtures)
-  - [Simple Example Usage](#simple-example-usage)
-  - [Advanced Usage](#advanced-usage)
-    - [Synchronous Creation, Local Ref Cache](#synchronous-creation-local-ref-cache)
-    - [Asynchronous Creation, Remote HTTP Refs](#asynchronous-creation-remote-http-refs)
-    - [Asynchronous Creation, From URL or File](#asynchronous-creation-from-url-or-file)
-      - [URLs](#urls)
-      - [Files](#files)
-    - [Asynchronous Creation, with custom remote $refs:](#asynchronous-creation-with-custom-remote-refs)
-  - [How To Use Schema Information](#how-to-use-schema-information)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-**NOTE**: This is a temporary drop-in replacement for [json_schema](https://pub.dev/packages/json_schema) until it supports `http: ^1.0.0` to be compatible with many other downstream networking libraries.  As soon as [this issue](https://github.com/Workiva/json_schema/issues/167) is resovled, this will be discontinued.
-
-
 # JSON Schema
+
+**Temporary Fork**: This is a temporary fork to for [json_schema](https://github.com/Workiva/json_schema) to work with `0.2.0` of `rfc_6901`.  Once [this issue](https://github.com/Workiva/json_schema/issues/172) is resolved, this package will be discontinued.
 
   A *platform agnostic* (web, flutter or vm) Dart library for validating JSON instances against JSON Schemas (multi-version support with latest of Draft 7).
 

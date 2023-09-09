@@ -45,8 +45,7 @@ class FormatExceptions {
       error('$key must be boolean: $instance', path);
   static FormatException num(String key, dynamic instance, [String? path]) =>
       error('$key must be num: $instance', path);
-  static FormatException nonNegativeNum(String key, dynamic instance,
-          [String? path]) =>
+  static FormatException nonNegativeNum(String key, dynamic instance, [String? path]) =>
       error('multipleOf must be > 0: $instance');
   static FormatException int(String key, dynamic instance, [String? path]) =>
       error('$key must be int: $instance', path);
