@@ -1,4 +1,4 @@
-## 5.1.2+1
+## 5.1.3
 - Widen range on `rfc_6901` to include 0.2.0
 
 ## 5.1.2

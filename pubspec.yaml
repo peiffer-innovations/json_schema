@@ -1,5 +1,5 @@
 name: json_schema2
-version: 5.1.2+1
+version: 5.1.3
 description: JSON Schema implementation in Dart
 homepage: https://github.com/peiffer-innovations/json_schema2
 
